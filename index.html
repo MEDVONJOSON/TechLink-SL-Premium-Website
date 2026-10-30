@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechLink SL (Sierra Leone Ltd) - Premier Technology & AI Agency</title>
+  <meta name="description" content="TechLink SL is Sierra Leone's leading technology agency providing Web Application Development, Website Design, AI Solutions, Software Engineering, Graphic Design, Social Media Management, and 24/7 IT Support." />
+  <meta name="keywords" content="TechLink SL, Sierra Leone tech company, web development Freetown, AI solutions West Africa, IT support Sierra Leone, software agency" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- Dismissible Top Announcement Bar (FR-18) -->
+  <div id="announcement-bar" class="bg-gradient-to-r from-emerald-600 via-blue-600 to-emerald-600 text-slate-950 py-2 px-4 text-center text-xs sm:text-sm font-bold flex items-center justify-center gap-2 relative z-50">
+    <span>ðŸš€ <strong>Special Launch Offer:</strong> Get 15% off Web Application & AI Chatbot Solutions this month!</span>
+    <button onclick="TechLinkModals.openQuoteWizard('Web Application Development')" class="underline hover:text-white transition ml-2">Claim Offer</button>
+    <button onclick="document.getElementById('announcement-bar').remove()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-950 hover:text-white">
+      âœ•
+    </button>
+  </div>
+
+  <!-- Responsive Navigation Header (FR-01) -->
+  <header class="fixed top-0 left-0 right-0 z-40 glass-header transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" onclick="TechLinkRouter.navigateTo('home')" class="flex items-center gap-3 group">
+        <img src="./assets/brand-mark.png" alt="TechLink Sierra Leone Logo" class="brand-logo transition duration-300" />
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#" onclick="TechLinkRouter.navigateTo('home')" class="nav-link hover:text-emerald-400 transition" data-page="home">Home</a>
+        
+        <!-- About Dropdown -->
+        <div class="relative group">
+          <button onclick="TechLinkRouter.navigateTo('about')" class="nav-link hover:text-emerald-400 transition inline-flex items-center gap-1 py-2" data-page="about">
+            About Us <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition"></i>
+          </button>
+          <div class="absolute left-0 top-full hidden group-hover:block w-56 glass-panel p-2 shadow-2xl space-y-1 text-xs">
+            <a href="#" onclick="TechLinkRouter.navigateTo('about')" class="block px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">Our Story & Mission</a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('about')" class="block px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">Leadership Team</a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('about')" class="block px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">Why Choose TechLink</a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('careers')" class="block px-3 py-2 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">Careers @ TechLink</a>
+          </div>
+        </div>
+
+        <!-- Services Dropdown (All 11 Services) -->
+        <div class="relative group">
+          <a href="#services-section" onclick="TechLinkRouter.navigateTo('home')" class="nav-link hover:text-emerald-400 transition inline-flex items-center gap-1 py-2">
+            Services <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:rotate-180 transition"></i>
+          </a>
+          <div class="absolute left-0 top-full hidden group-hover:block w-72 glass-panel p-3 shadow-2xl space-y-1 text-xs">
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'web-apps')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Web Application Dev</div>
+              <div class="text-[10px] text-slate-400">Dashboards, portals & e-commerce</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'websites')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Website Design & Dev</div>
+              <div class="text-[10px] text-slate-400">Corporate & NGO platforms</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'graphic-design')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Graphic Design & Branding</div>
+              <div class="text-[10px] text-slate-400">Logos, flyers & brand identity</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'ai-solutions')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">AI Solutions & Chatbots</div>
+              <div class="text-[10px] text-slate-400">Conversational AI & automation</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'social-media')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Social Media Management</div>
+              <div class="text-[10px] text-slate-400">Content, ads & analytics</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'video-content')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Video Editing & Content Creation</div>
+              <div class="text-[10px] text-slate-400">Reels, promos & social content</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'mobile-apps')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Mobile App Development</div>
+              <div class="text-[10px] text-slate-400">Custom iOS & Android apps</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'software-dev')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Software Development</div>
+              <div class="text-[10px] text-slate-400">Mobile apps, POS & enterprise</div>
+            </a>
+            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'virtual-assistance')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">Virtual Assistance & Help Desk</div>
+              <div class="text-[10px] text-slate-400">Admin support & request triage</div>
+            </a>            <a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'it-support')" class="block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-emerald-400 transition">
+              <div class="font-bold">24/7 IT Support</div>
+              <div class="text-[10px] text-slate-400">Network, cloud & cybersecurity</div>
+            </a>
+          </div>
+        </div>
+
+        <a href="#" onclick="TechLinkRouter.navigateTo('portfolio')" class="nav-link hover:text-emerald-400 transition" data-page="portfolio">Portfolio</a>
+        <a href="#" onclick="TechLinkRouter.navigateTo('blog')" class="nav-link hover:text-emerald-400 transition" data-page="blog">Blog</a>
+        <a href="#" onclick="TechLinkRouter.navigateTo('contact')" class="nav-link hover:text-emerald-400 transition" data-page="contact">Contact</a>
+      </nav>
+
+      <!-- Action CTAs & Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Official WhatsApp Contact -->
+        <a href="https://wa.me/23271345276" target="_blank" rel="noopener noreferrer" class="btn-brand-primary hidden sm:inline-flex text-xs px-5 py-2.5">
+          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Us
+        </a>
+
+        <!-- Mobile Drawer Toggle Button -->
+        <button onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" class="md:hidden p-2 rounded-xl glass-panel text-slate-300">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="hidden md:hidden glass-panel border-t border-slate-800 p-6 space-y-4">
+      <div class="flex flex-col space-y-3 text-sm font-semibold">
+        <a href="#" onclick="TechLinkRouter.navigateTo('home')" class="py-2 border-b border-slate-800 text-white">Home</a>
+        <a href="#" onclick="TechLinkRouter.navigateTo('about')" class="py-2 border-b border-slate-800 text-white">About Us</a>
+        <a href="#" onclick="TechLinkRouter.navigateTo('portfolio')" class="py-2 border-b border-slate-800 text-white">Portfolio</a>
+        <a href="#" onclick="TechLinkRouter.navigateTo('blog')" class="py-2 border-b border-slate-800 text-white">Blog / Insights</a>
+        <a href="#" onclick="TechLinkRouter.navigateTo('careers')" class="py-2 border-b border-slate-800 text-white">Careers</a>
+        <a href="#" onclick="TechLinkRouter.navigateTo('contact')" class="py-2 text-white">Contact Us</a>
+      </div>
+      <a href="https://wa.me/23271345276" target="_blank" rel="noopener noreferrer" class="btn-brand-primary w-full justify-center">
+        <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Us
+      </a>
+    </div>
+  </header>
+
+  <!-- Dynamic Content Viewport -->
+  <main id="main-content" class="min-h-screen">
+    <!-- Rendered dynamically by js/app.js -->
+  </main>
+
+  <!-- Master Footer Structure -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12 text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      
+      <!-- Col 1: Brand & Socials -->
+      <div class="lg:col-span-2 space-y-6">
+        <img src="./assets/logo.png" alt="TechLink Sierra Leone Logo" class="h-16 w-auto max-w-48 object-contain" />
+        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+          TechLink SL is a full-service freelancing technology agency based in Freetown, Sierra Leone. We provide web applications, website design, AI solutions, software development, graphic branding, and 24/7 IT support.
+        </p>
+        <div class="space-y-2 text-xs text-slate-300 font-semibold">
+                    <p class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a href="tel:+23278091467" class="inline-flex items-center gap-2 hover:text-emerald-300"><i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>+232 78 091467</a>
+            <a href="https://wa.me/23271345276?text=Hello%20TechLink%20SL%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" aria-label="Official WhatsApp Business +232 71 345276" class="inline-flex items-center gap-2 text-emerald-300 hover:text-white"><img src="./assets/whatsapp-icon.svg" alt="" class="w-4 h-4" />+232 71 345276 <span class="text-emerald-400">Official WhatsApp</span></a>
+          </p>
+          <p class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 shrink-0 text-emerald-400"></i><span>Office: 31C Short Street, Low Cost, Freetown, Sierra Leone</span></p>
+          <p class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 shrink-0 text-emerald-400"></i><span>Email: <a href="mailto:techlinksl247@gmail.com" class="hover:text-white">techlinksl247@gmail.com</a></span></p>
+          <p class="flex items-center gap-2"><i data-lucide="at-sign" class="w-4 h-4 shrink-0 text-emerald-400"></i><span>Official Handle: @techlinksl</span></p>
+        </div>
+        <div class="flex items-center gap-3 pt-2" aria-label="TechLink SL social media">
+          <a href="https://facebook.com/techlinksl" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center hover:border-emerald-400 transition"><img src="./assets/facebook-icon.png" alt="Facebook" class="w-7 h-7 rounded-full object-cover" /></a>
+          <a href="https://instagram.com/techlinksl" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center hover:border-emerald-400 transition"><img src="./assets/instagram-icon.png" alt="Instagram" class="w-7 h-7 rounded-full object-cover" /></a>
+          <a href="https://wa.me/23271345276" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center hover:border-emerald-400 transition"><img src="./assets/whatsapp-icon.svg" alt="WhatsApp" class="w-7 h-7 rounded-full object-cover" /></a>
+          <a href="https://t.me/techlinksl" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center hover:border-emerald-400 transition"><img src="./assets/telegram-icon.svg" alt="Telegram" class="w-7 h-7 rounded-full object-cover" /></a>
+          <a href="https://tiktok.com/@techlinksl" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center hover:border-emerald-400 transition"><img src="./assets/tiktok-icon.png" alt="TikTok" class="w-7 h-7 rounded-full object-cover" /></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="space-y-4">
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Company</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('about')" class="hover:text-emerald-400 transition">About Us</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('portfolio')" class="hover:text-emerald-400 transition">Portfolio</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('blog')" class="hover:text-emerald-400 transition">Blog & Insights</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('careers')" class="hover:text-emerald-400 transition">Careers</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('contact')" class="hover:text-emerald-400 transition">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="space-y-4">
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Services</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'web-apps')" class="hover:text-emerald-400 transition">Web Application Dev</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'websites')" class="hover:text-emerald-400 transition">Website Design & Dev</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'graphic-design')" class="hover:text-emerald-400 transition">Graphic Design</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'ai-solutions')" class="hover:text-emerald-400 transition">AI Solutions</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'social-media')" class="hover:text-emerald-400 transition">Social Media Mgmt</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'video-content')" class="hover:text-emerald-400 transition">Video Editing & Content Creation</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'mobile-apps')" class="hover:text-emerald-400 transition">Mobile App Development</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'software-dev')" class="hover:text-emerald-400 transition">Software Dev</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'virtual-assistance')" class="hover:text-emerald-400 transition">Virtual Assistance & Help Desk</a></li>
+          <li><a href="#" onclick="TechLinkRouter.navigateTo('service-detail', 'it-support')" class="hover:text-emerald-400 transition">IT Support</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Newsletter Signup -->
+      <div class="space-y-4">
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider">Newsletter</h4>
+        <p class="text-xs text-slate-400">Subscribe for tech trends & market insights in West Africa.</p>
+        <form onsubmit="event.preventDefault(); showToast('Subscribed!', 'Thank you for subscribing to TechLink SL Newsletter.');" class="space-y-2">
+          <input type="email" required placeholder="Enter your email" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-emerald-400" />
+          <button type="submit" class="btn-brand-primary w-full text-xs justify-center py-2">
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="max-w-7xl mx-auto px-4 mt-12 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <p>Â© 2026 TechLink SL (Sierra Leone Ltd). All rights reserved.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+        <a href="#" onclick="alert('Privacy Policy: TechLink SL complies with Sierra Leone data protection guidelines.')" class="hover:text-slate-400">Privacy Policy</a>
+        <a href="#" onclick="alert('Terms of Service: All project deliverables governed by signed SLA contracts.')" class="hover:text-slate-400">Terms of Service</a>
+        <button id="theme-toggle-btn" class="inline-flex items-center gap-2 hover:text-emerald-400 transition" title="Toggle Light/Dark Theme">
+          <i id="theme-toggle-icon" data-lucide="sun" class="w-4 h-4"></i> Theme
+        </button>
+        <a href="#" onclick="TechLinkModals.openAdminCMS()" class="text-emerald-400 hover:underline">CMS Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Click-to-Chat Button (FR-04) -->
+  <a href="https://wa.me/23271345276?text=Hello%20TechLink%20SL%2C%20I%20am%20interested%20in%20your%20services." target="_blank" class="whatsapp-float-btn" title="Message our official WhatsApp Business account (+232 71 345276)" aria-label="Message TechLink SL on WhatsApp">
+    <i data-lucide="message-square" class="w-7 h-7"></i>
+  </a>
+
+  <!-- Floating AI Assistant Chatbot Button (FR-05) -->
+  <button id="chat-widget-trigger" class="chat-widget-button" title="TechLink AI Assistant">
+    <i data-lucide="bot" class="w-8 h-8"></i>
+  </button>
+
+  <!-- AI Chatbot Modal Widget (FR-05) -->
+  <div id="chat-modal" class="modal-backdrop">
+    <div class="modal-content max-w-md h-[550px] flex flex-col">
+      <div class="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+            <i data-lucide="bot" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">TechLink AI Assistant</h4>
+            <p class="text-[10px] text-emerald-400">â— Online | Instant Answers</p>
+          </div>
+        </div>
+        <button onclick="document.getElementById('chat-modal').classList.remove('active')" class="text-slate-400 hover:text-white">âœ•</button>
+      </div>
+
+      <div id="chat-messages-container" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-950">
+        <!-- Rendered by js/app.js -->
+      </div>
+
+      <!-- Quick Action Pills -->
+      <div class="p-2 bg-slate-900 border-t border-slate-800 flex flex-wrap gap-1 text-[11px]">
+        <button onclick="TechLinkApp.handleChatSend('Get price quotes')" class="px-2.5 py-1 bg-slate-800 text-emerald-400 rounded-full hover:bg-slate-700">ðŸ’° Pricing</button>
+        <button onclick="TechLinkApp.handleChatSend('Tell me about Web Apps')" class="px-2.5 py-1 bg-slate-800 text-blue-400 rounded-full hover:bg-slate-700">ðŸ’» Web Apps</button>
+        <button onclick="TechLinkApp.handleChatSend('Freetown office location')" class="px-2.5 py-1 bg-slate-800 text-emerald-400 rounded-full hover:bg-slate-700">ðŸ“ Location</button>
+      </div>
+
+      <div class="p-3 bg-slate-900 border-t border-slate-800 flex items-center gap-2">
+        <input type="text" id="chat-input" onkeydown="if(event.key === 'Enter') TechLinkApp.handleChatSend()" placeholder="Type a message..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-emerald-400" />
+        <button onclick="TechLinkApp.handleChatSend()" class="p-2 bg-emerald-500 text-slate-950 rounded-xl font-bold">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Step Quote Calculator Modal (FR-03) -->
+  <div id="quote-modal" class="modal-backdrop">
+    <div class="modal-content p-6">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i> Request A Quote
+        </h3>
+        <button onclick="TechLinkModals.closeQuoteWizard()" class="text-slate-400 hover:text-white">âœ•</button>
+      </div>
+      <div id="quote-wizard-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Consultation Booking Modal (FR-10) -->
+  <div id="consultation-modal" class="modal-backdrop">
+    <div class="modal-content p-6">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+        <h3 class="text-lg font-bold text-white">Book a Free Consultation</h3>
+        <button onclick="TechLinkModals.closeConsultationModal()" class="text-slate-400 hover:text-white">âœ•</button>
+      </div>
+      <form onsubmit="TechLinkApp.handleConsultationSubmit(event)" class="space-y-4">
+        <input type="hidden" id="consultation-service" />
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Your Name</label>
+          <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Preferred Date</label>
+          <input type="date" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1">Preferred Time Slot</label>
+          <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white outline-none">
+            <option>10:00 AM - 11:00 AM</option>
+            <option>2:00 PM - 3:00 PM</option>
+            <option>4:00 PM - 5:00 PM</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-brand-primary w-full justify-center">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Case Study Modal (FR-07) -->
+  <div id="case-study-modal" class="modal-backdrop">
+    <div class="modal-content p-6 max-w-2xl">
+      <div class="flex justify-end mb-2">
+        <button onclick="TechLinkModals.closeCaseStudy()" class="text-slate-400 hover:text-white">âœ•</button>
+      </div>
+      <div id="case-study-content"></div>
+    </div>
+  </div>
+
+  <!-- Blog Reader Modal (FR-06) -->
+  <div id="blog-reader-modal" class="modal-backdrop">
+    <div class="modal-content p-6 max-w-3xl">
+      <div class="flex justify-end mb-2">
+        <button onclick="TechLinkModals.closeBlogReader()" class="text-slate-400 hover:text-white">âœ•</button>
+      </div>
+      <div id="blog-reader-content"></div>
+    </div>
+  </div>
+
+  <!-- Job Application Modal (FR-13) -->
+  <div id="job-modal" class="modal-backdrop">
+    <div class="modal-content p-6">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
+        <h3 class="text-lg font-bold text-white">Apply For Position</h3>
+        <button onclick="TechLinkModals.closeJobModal()" class="text-slate-400 hover:text-white">âœ•</button>
+      </div>
+      <form onsubmit="TechLinkApp.handleJobSubmit(event)" class="space-y-4">
+        <input type="text" id="job-title-input" readonly class="w-full bg-slate-900/60 border border-slate-800 text-emerald-400 font-bold px-4 py-2 text-sm rounded-xl" />
+        <input type="text" required placeholder="Full Name" class="w-full bg-slate-900 border border-slate-700 px-4 py-3 text-sm text-white rounded-xl" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-slate-900 border border-slate-700 px-4 py-3 text-sm text-white rounded-xl" />
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">Upload Resume / CV (PDF, max 5MB)</label>
+          <input type="file" required accept=".pdf,.doc,.docx" class="w-full text-xs text-slate-400 file:bg-slate-800 file:text-white file:border-0 file:py-2 file:px-4 file:rounded-lg" />
+        </div>
+        <button type="submit" class="btn-brand-primary w-full justify-center">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin CMS Dashboard Modal (FR-15) -->
+  <div id="admin-cms-modal" class="modal-backdrop">
+    <div class="modal-content p-6 max-w-4xl">
+      <div class="flex justify-end mb-2">
+        <button onclick="TechLinkModals.closeAdminCMS()" class="text-slate-400 hover:text-white">âœ•</button>
+      </div>
+      <div id="admin-cms-content"></div>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Banner (FR-14) -->
+  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:right-auto md:max-w-md glass-panel p-4 z-50 border-emerald-500/40 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="text-xs text-slate-300">
+      We use cookies to optimize performance and track consultation analytics.
+    </div>
+    <button onclick="TechLinkApp.acceptCookies()" class="btn-brand-primary text-xs shrink-0 py-1.5 px-4">
+      Accept Cookies
+    </button>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed top-24 right-4 z-50 space-y-2 max-w-sm pointer-events-none"></div>
+
+  <!-- Application Scripts -->
+  <script src="./js/data.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

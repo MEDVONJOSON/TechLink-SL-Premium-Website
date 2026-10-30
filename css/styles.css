@@ -1,0 +1,391 @@
+/* ==========================================================================
+   TechLink SL (Sierra Leone Ltd) - Master CSS Design System
+   Colors: Emerald Green (#00D282), Sky Blue (#0091FF), Dark Slate (#0B132B)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --brand-green: #00D282;
+  --brand-green-hover: #00B56F;
+  --brand-blue: #1E90FF;
+  --brand-blue-hover: #0F79E8;
+  --brand-cyan: #00E5FF;
+  
+  /* Dark Mode Default Tokens */
+  --bg-main: #0B132B;
+  --bg-card: #14213D;
+  --bg-card-hover: #1E2D4A;
+  --bg-header: rgba(30, 144, 255, 0.90);
+  --text-main: #F8FAFC;
+  --text-muted: #D9E8FF;
+  --text-heading: #FFFFFF;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-brand: rgba(255, 255, 255, 0.28);
+  --shadow-glow: 0 10px 30px -10px rgba(30, 144, 255, 0.5);
+  --shadow-blue-glow: 0 10px 30px -10px rgba(30, 144, 255, 0.4);
+}
+
+/* Logo Image Clean Blending */
+img[src*="logo.png"] {
+  mix-blend-mode: screen;
+  filter: contrast(1.1) brightness(1.1);
+  display: block;
+}
+
+[data-theme="light"] img[src*="logo.png"] {
+  mix-blend-mode: multiply;
+  filter: none;
+}
+
+
+/* Base Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-heading);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 210, 130, 0.4);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-green);
+}
+
+/* Gradient Text Utilities */
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Components */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-brand);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.glass-header {
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.96), rgba(9, 58, 123, 0.96));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 30px rgba(30, 144, 255, 0.25);
+}
+
+.brand-logo {
+  width: 8rem;
+  height: 4.5rem;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+}
+
+.brand-logo:hover {
+  transform: scale(1.04);
+}
+
+/* Glow Cards & Buttons */
+.btn-brand-primary {
+  background: linear-gradient(135deg, var(--brand-green) 0%, #00B56F 100%);
+  color: #0F172A;
+  font-weight: 700;
+  padding: 0.85rem 1.8rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 210, 130, 0.4);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-brand-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 210, 130, 0.6);
+  color: #000000;
+}
+
+.btn-brand-secondary {
+  background: transparent;
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 0.85rem 1.8rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 2px solid var(--brand-blue);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-brand-secondary:hover {
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-blue-glow);
+  transform: translateY(-2px);
+}
+
+/* Floating Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 15px rgba(0,210,130,0.6)); }
+  50% { opacity: 0.8; filter: drop-shadow(0 0 30px rgba(0,145,255,0.8)); }
+}
+
+.animate-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.hero-service-slider {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.hero-service-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  transform: scale(1.02);
+  border-radius: 1rem;
+}
+
+.hero-service-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Typing Cursor Animation */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+  color: var(--brand-green);
+  font-weight: 700;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Modal Styling */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 19, 43, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  padding: 1rem;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-brand);
+  border-radius: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-backdrop.active .modal-content {
+  transform: scale(1);
+}
+
+/* Chatbot Floating Widget */
+.chat-widget-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-blue) 100%);
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 210, 130, 0.5);
+  cursor: pointer;
+  z-index: 90;
+  transition: all 0.3s ease;
+}
+
+.chat-widget-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 35px rgba(0, 210, 130, 0.7);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 7rem;
+  right: 2.3rem;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+  cursor: pointer;
+  z-index: 90;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.7);
+}
+
+/* Badge Styling */
+.badge-brand {
+  background: rgba(0, 210, 130, 0.15);
+  color: var(--brand-green);
+  border: 1px solid rgba(0, 210, 130, 0.3);
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trusted-client-viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 0.25rem 0;
+}
+.trusted-client-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  animation: trusted-client-loop 28s linear infinite;
+}
+.trusted-client-viewport:hover .trusted-client-track {
+  animation-play-state: paused;
+}
+.trusted-client-card {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 15rem;
+  padding: 0.75rem 1rem;
+  color: #e2e8f0;
+  font-weight: 700;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  border-radius: 0.75rem;
+}
+.trusted-client-logo {
+  display: flex;
+  flex: 0 0 4rem;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 3rem;
+  padding: 0.25rem;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.5rem;
+}
+.trusted-client-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  filter: none;
+  opacity: 1;
+}
+.testimonial-client-logo img {
+  mix-blend-mode: normal;
+  filter: none;
+  opacity: 1;
+}
+@keyframes trusted-client-loop {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trusted-client-viewport { overflow-x: auto; }
+  .trusted-client-track { animation: none; }
+}

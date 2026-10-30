@@ -1,0 +1,21 @@
+{
+  "name": "techlinksl-website",
+  "version": "1.0.0",
+  "description": "TechLink SL (Sierra Leone Ltd) - Official Freelancing Tech Agency Corporate Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "techlink-sl",
+    "sierra-leone",
+    "freetown",
+    "tech-agency",
+    "web-development",
+    "ai-solutions",
+    "software-development"
+  ],
+  "author": "TechLink SL Team",
+  "license": "MIT"
+}
